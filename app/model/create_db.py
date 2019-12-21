@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import IntegrityError, DataError
 import random
-
+import Global
 Base = declarative_base()
 
 
@@ -25,7 +25,7 @@ class Users(Base):
 
 class Stores(Base):
     __tablename__ = "Stores"
-    StoreId = Column(String(100), Sequence('user_id_seq'), primary_key=True)
+    StoreId = Column(String(100), Sequence('Stores_id_seq'), primary_key=True)
     # StoreName = Column(String(10))
     UserId = Column(ForeignKey("Users.UserId"))
     Balance = Column(Float(precision=10, decimal_return_scale=2))
@@ -61,10 +61,10 @@ class StoreBooks(Base):
 class BookPictures(Base):
     __tablename__ = 'BookPictures'
     __table_args__ = (
-        PrimaryKeyConstraint('PictureId', 'BookId'),
+        PrimaryKeyConstraint('PictureId'),
     )
     PictureId = Column(String(500), primary_key=True)
-    BookId = Column(String(100), ForeignKey("StoreBooks.BookId"), primary_key=True)
+    BookId = Column(String(100), ForeignKey("StoreBooks.BookId"))
     Address = Column(String(100)) # 图片命名：userId + 上传时间戳
     # 图片保存参考：https://blog.csdn.net/mingyuli/article/details/82853812
 
@@ -90,7 +90,7 @@ class OrderBooks(Base):
 
 
 if __name__ == '__main__':
-    engine = create_engine('postgresql+psycopg2://postgres:0710@localhost/BookStore')
+    engine = create_engine(Global.DbURL)
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     Base.metadata.create_all(engine)  # 创建所有表格

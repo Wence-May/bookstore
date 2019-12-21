@@ -3,14 +3,19 @@
 from flask import Flask
 # from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, String, Integer, Boolean, ForeignKey, Float, DateTime, create_engine, PrimaryKeyConstraint, desc, \
-    Sequence
+    Sequence,and_
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import IntegrityError, DataError
 import random
-import Global
+import app.model.Global as Global
 Base = declarative_base()
-
+class DB_operations:
+    def connnet_db(self):
+        engine = create_engine(Global.DbURL)
+        DBSession = sessionmaker(bind=engine)
+        session = DBSession()
+        return session
 
 class Users(Base):
     __tablename__ = 'Users'
@@ -21,6 +26,7 @@ class Users(Base):
     Password = Column(String(10))
     Terminal = Column(String(10))
     Token = Column(String(100))
+ 
 
 
 class Stores(Base):
@@ -77,8 +83,7 @@ class Orders(Base):
     Status = Column(String(50), nullable=False)
     Amount = Column(Integer, nullable=False)
     Deadline = Column(DateTime, nullable=False)
-
-
+      
 class OrderBooks(Base):
     __tablename__ = 'OrderBooks'
     __table_args__ = (
@@ -87,7 +92,12 @@ class OrderBooks(Base):
     OrderId = Column(String(100), ForeignKey("Orders.OrderId"), primary_key=True)
     BookId = Column(String(100), ForeignKey("StoreBooks.BookId"), primary_key=True)
     Count = Column(Integer, nullable=False)
-
+    
+class UserToken(Base):
+    __tablename__ = 'UserToken'
+    UserId = Column(ForeignKey("Users.UserId"),primary_key = True)
+    Token = Column(String(100),nullable = False )
+    DeadTime = Column(DateTime,nullable = False)
 
 if __name__ == '__main__':
     engine = create_engine(Global.DbURL)

@@ -13,6 +13,7 @@ class Seller:
         self.auth = Auth(url_prefix)
         code, self.token = self.auth.login(self.seller_id, self.password, self.terminal)
         assert code == 200
+        
 
     def create_store(self, store_id):
         json = {
@@ -47,6 +48,16 @@ class Seller:
         }
         #print(simplejson.dumps(json))
         url = urljoin(self.url_prefix, "add_stock_level")
+        headers = {"token": self.token}
+        r = requests.post(url, headers=headers, json=json)
+        return r.status_code
+    def delivery_books(self, seller_id: str, order_id: str) -> int:
+        json = {
+            "user_id": seller_id,
+            "order_id": order_id,
+        }
+        #print(simplejson.dumps(json))
+        url = urljoin(self.url_prefix, "delivery_boooks")
         headers = {"token": self.token}
         r = requests.post(url, headers=headers, json=json)
         return r.status_code

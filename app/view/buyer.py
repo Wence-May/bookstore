@@ -6,6 +6,7 @@
 import logging
 from flask import jsonify
 from flask import Blueprint, request
+from app.model.buyer import Buyer
 
 bp_buyer = Blueprint("buyer", __name__, url_prefix="/buyer")
 
@@ -101,10 +102,12 @@ def comfirm_receiption():
     '''
     order_id: int = 1
     logging.debug("comfirm_receiption has run")
-    message = "messages from funcion"
-    code = 222
-    token = "return from  function"
-    return jsonify({"message": message, "token": token}), code
+    order_id: str = request.json.get("order_id")
+    user_id: str = request.json.get("user_id")
+    token: str = request.headers.get("token")
+    password: str = request.json.get("password")
+    code,message = Buyer().comfirm_reception(user_id,order_id,token,password)
+    return jsonify({"message": message}), code
 
 
 @bp_buyer.route("/transfer_to_user") # 商户账户转账至拥有至拥有者账户
@@ -121,3 +124,4 @@ def transfer_to_user():
     @params: user_id, password, amount, store_id
     :return:
     '''
+

@@ -1,7 +1,7 @@
 
 error_code = {
+    200: "{} successfully",
     401: "authorization fail.",
-
     511: "non exist user id {}",
     512: "exist user id {}",
     513: "non exist store id {}",
@@ -11,17 +11,27 @@ error_code = {
     517: "stock level low, book id {}",
     518: "invalid order id {}",
     519: "not sufficient funds, order id {}",
-    520: "",
-    521: "",
-    522: "",
-    523: "",
+    520: "not exist order id {}",
+    521: "this order can't be cancelled in state of {}",
+    522: "this order is not in right state:  {}",
+    523: "repeated operation:{}",
     524: "",
     525: "",
     526: "",
     527: "",
     528: "",
 }
+def error_repeated_operation(message):
+    return 523,error_code[523].format(message)
 
+def error_order_steate_not_right(message ):
+    return 521,error_code[522].format(message)
+
+def error_order_can_not_be_cancelled(status):
+    return 521,error_code[521].format(status)
+
+def success(message):
+    return 200,error_code[200].format(message)
 
 def error_non_exist_user_id(user_id):
     return 511, error_code[511].format(user_id)
@@ -65,3 +75,4 @@ def error_authorization_fail():
 
 def error_and_message(code, message):
     return code, message
+

@@ -6,7 +6,7 @@
 import logging
 from flask import jsonify
 from flask import Blueprint, request
-
+import app.model.seller  as seller
 bp_seller = Blueprint("seller", __name__, url_prefix="/seller")
 
 
@@ -65,22 +65,23 @@ def add_stock():
     message = "messages from funcion"
     code = 222
     token = "return from function"
-    return jsonify({"message": message, "token": token}), code
+    return jsonify({"message": message}), code
 
 
 # 扩展接口
 @bp_seller.route("/delivery_books")  # 发货
 def delivery_books():
     '''
-    0. check_token
-    1. 查询order对象，检查order是否存在，且status==已付款
+    0. check_token， 授权失败
+    1. 该订单不存在，该订单还未付款，该订单已被取消，该订单已经发货，
     2. 修改status为已发货
 
     @request: order_id (user_id, store_id)
     :return:
     '''
     logging.debug("delivery_books has run")
-    message = "messages from funcion"
-    code = 222
-    token = "return from function"
-    return jsonify({"message": message, "token": token}), code
+    order_id: str = request.json.get("order_id")
+    user_id: str = request.json.get("user_id")
+    token: str = request.headers.get("token")
+    code,message = seller.Seller().delivery_books(user_id,order_id,token)
+    return jsonify({"message": message}), code

@@ -10,12 +10,12 @@ from sqlalchemy.exc import IntegrityError, DataError
 import random
 import app.model.Global as Global
 Base = declarative_base()
-class DB_operations:
-    def connnet_db(self):
-        engine = create_engine(Global.DbURL)
-        DBSession = sessionmaker(bind=engine)
-        session = DBSession()
-        return session
+
+def create_session(engine):
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
+    return session
+
 
 class Users(Base):
     __tablename__ = 'Users'

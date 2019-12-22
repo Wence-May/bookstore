@@ -1,12 +1,13 @@
 # order 相关的功能
 import app.model.Global as Global
 import json 
-from app.model.create_db import DB_operations,Users,Orders,UserToken,OrderBooks,StoreBooks
+from app.model.create_db import Users,Orders,UserToken,OrderBooks,StoreBooks,create_session
 from app.model.user import User
 import app.model.error as error
 import logging
 from datetime import datetime
-from sqlalchemy import and_,update
+from sqlalchemy import and_,update,create_engine
+from sqlalchemy.orm import sessionmaker
 def to_dict(result:object,dropwords:list)->dict:
     dic = {}
     for att in dir(result):
@@ -15,7 +16,10 @@ def to_dict(result:object,dropwords:list)->dict:
         value = getattr(result,att)
         dic[att] = value
     return dic
+
 class Order():
+    def __init__(self):
+        self.engine = create_engine(Global.DbURL)
     def order_status(self,user_id:str,order_id:str,token:str)-> (str,str):
             '''
             0. check_token
@@ -29,7 +33,7 @@ class Order():
             if(code!="200"):
                 return code,message
             # check order exist 
-            session = DB_operations().connnet_db()
+            session = create_session(self.engine)
             line  = session.query(Orders).filter(Orders.OrderId==order_id).first()
             session.close()
             if line == None:
@@ -58,7 +62,7 @@ class Order():
         code,message = User().check_token(user_id,token)
         if(code!="200"):
             return code,message
-        session = DB_operations().connnet_db()
+        session = create_session(self.engine)
         lines  = session.query(Orders,OrderBooks).filter(and_(Orders.UserId == user_id,Orders.OrderId==OrderBooks.OrderId)).all()
         session.close()
         if lines == None:
@@ -93,7 +97,7 @@ class Order():
         code,message = User().check_token(user_id,token)
         if(code!="200"):
             return code,message
-        session = DB_operations().connnet_db()
+        session = create_session(self.engine)
         line = session.query(Orders).filter(and_(Orders.OrderId==order_id)).first()
         if line == None:
             return error.error_invalid_order_id(order_id)
@@ -101,6 +105,7 @@ class Order():
             return error.error_non_exist_user_id(user_id)
         if line.Status !="1":
             return error.error_order_can_not_be_cancelled(line.Status)
+        
         # 修改Orders 
         session.execute(
                 update(Orders).where(Orders.OrderId==order_id).values(
@@ -125,7 +130,7 @@ class Order():
         '''
         筛选所有的订单状态为1 且 时间>=deadtime 的orderid,然乎执行取消操作
         '''
-        session = DB_operations().connnet_db()
+        session = create_session(self.engine)
         localtime = datetime.now()
         Orderlist = session.query(Orders).filter(and_(Orders.Status==1, Orders.Deadline<localtime))
         if Orderlist ==[]:

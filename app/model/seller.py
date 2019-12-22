@@ -1,20 +1,22 @@
 # order 相关的功能
 import app.model.Global as Global
 import json 
-from app.model.create_db import DB_operations,Users,Orders,UserToken,OrderBooks,StoreBooks
+from app.model.create_db import Users,Orders,UserToken,OrderBooks,StoreBooks,create_session
 from app.model.user import User
 import app.model.error as error
 import logging
 from datetime import datetime
-from sqlalchemy import and_,update
+from sqlalchemy import and_,update,create_engine
 
 class Seller():
+    def __init__(self):
+        self.engine = create_engine(Global.DbURL)
     def delivery_books(self,seller_id:str,order_id:str,token: str)->(str,str):
         # check token
         code,message = User().check_token(seller_id,token)
         if(code!=200):
             return code,message
-        session = DB_operations().connnet_db()
+        session = create_session(self.engine)
         # 该订单不存在
         order = session.query(Orders).filter(Orders.OrderId==order_id).first()
         if order == None:

@@ -3,12 +3,11 @@ from flask import jsonify
 from flask import Blueprint, request
 from app.model.order import Order
 bp_order = Blueprint("order", __name__, url_prefix="/order")
-
+order = Order()
 # 查询订单状态，查看历史订单，用户取消订单，自动取消订单
 '''
 注明
 '''
-
 @bp_order.route("/order_status")  # 用户查询历史订单状态
 def order_status():
     '''
@@ -23,7 +22,7 @@ def order_status():
     order_id: str = request.json.get("order_id")
     user_id: str = request.json.get("user_id")
     token: str = request.headers.get("token")
-    code,message = Order().order_status(user_id,order_id,token)
+    code,message = order.order_status(user_id,order_id,token)
     return jsonify({"message": message}), code
 
 
@@ -44,7 +43,7 @@ def my_orders():
     logging.debug("myorder has run")
     user_id: str = request.json.get("user_id")
     token: str = request.headers.get("token")
-    code,message = Order().my_orders(user_id,token)
+    code,message = order.my_orders(user_id,token)
     return jsonify({"message": message}), code
 
 @bp_order.route("/user_cancel_order")  # 用户取消订单
@@ -68,19 +67,17 @@ def user_cancel_order():
     user_id: str = request.json.get("user_id")
     order_id: str = request.json.get("order_id")
     token: str = request.headers.get("token")
-    order = Order()
     code,message = order.user_cancel_order(user_id,order_id,token)
     return jsonify({"message": message}), code
 
 
-@bp_order.route("/auto_cancel_order")  # 自动取消订单
+# @bp_order.route("/auto_cancel_order")  # 自动取消订单
 def auto_cancel_order():
     '''
     实现过程是，每隔一段时间访问 Order表，选出已下单状态且已经到达可以取消订单时间的元组，对于每个元组调用取消改订单的函数
     :return:
     '''
     logging.debug("auto_cancel_order has run")
-    order = Order()
     code,message = order.auto_cancel_order()
     return code,message
 

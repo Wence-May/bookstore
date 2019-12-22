@@ -29,8 +29,8 @@ class Order():
             如果订单存在 返回订单信息和code =200
             '''
             # check token 
-            code,message = User().check_token(user_id,token)
-            if(code!="200"):
+            code,message = User().check_token(token)
+            if(code!=200):
                 return code,message
             # check order exist 
             session = create_session(self.engine)
@@ -60,14 +60,14 @@ class Order():
         2. 返回
         """
         code,message = User().check_token(user_id,token)
-        if(code!="200"):
+        if(code!=200):
             return code,message
         session = create_session(self.engine)
         lines  = session.query(Orders,OrderBooks).filter(and_(Orders.UserId == user_id,Orders.OrderId==OrderBooks.OrderId)).all()
         session.close()
         if lines == None:
             logging.error("you dont't have any orders" )
-            return "200","you dont't have any orders"   
+            return 200,"you dont't have any orders"   
         logging.debug(lines)   
         all_order = dict()
         for ord in lines:
@@ -75,7 +75,7 @@ class Order():
             dic2 = to_dict(ord.OrderBooks,dropwords=["OrderId"])
             dic = dict(**dic1,**dic2)
             all_order[ord.Orders.OrderId] = dic
-        return "200", json.dumps(all_order)
+        return 200, json.dumps(all_order)
 
     def user_cancel_order(self,user_id,order_id,token):
         '''
@@ -95,7 +95,7 @@ class Order():
         :return:
         '''
         code,message = User().check_token(user_id,token)
-        if(code!="200"):
+        if(code!=200):
             return code,message
         session = create_session(self.engine)
         line = session.query(Orders).filter(and_(Orders.OrderId==order_id)).first()

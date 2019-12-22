@@ -15,17 +15,19 @@ error_code = {
     521: "this order can't be cancelled in state of {}",
     522: "this order is not in right state:  {}",
     523: "repeated operation:{}",
-    524: "",
-    525: "",
+    524: "invalid store id {}",
+    525: "invalid value : {}",
     526: "",
     527: "",
     528: "",
 }
+def error_invalid_value(fund):
+    return 525,error_code[525].format(fund)
 def error_repeated_operation(message):
     return 523,error_code[523].format(message)
 
 def error_order_steate_not_right(message ):
-    return 521,error_code[522].format(message)
+    return 522,error_code[522].format(message)
 
 def error_order_can_not_be_cancelled(status):
     return 521,error_code[521].format(status)
@@ -64,6 +66,8 @@ def error_stock_level_low(book_id):
 def error_invalid_order_id(order_id):
     return 518, error_code[518].format(order_id)
 
+def error_invalid_store_id(store_id):
+    return 524, error_code[518].format(store_id)
 
 def error_not_sufficient_funds(order_id):
     return 519, error_code[518].format(order_id)

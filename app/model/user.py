@@ -1,10 +1,11 @@
-from app.model.create_db import DB_operations
-from app.model.create_db import Users,Orders,UserToken
+
+from app.model.create_db import Users,Orders,UserToken,create_session
 from datetime import datetime
 from app.model import error 
 from sqlalchemy import Column, String, Integer, Boolean,ForeignKey,Float,update, create_engine, PrimaryKeyConstraint, desc,delete,and_
 
-class User():
+class UserMethod():
+    
     # 检查token
     def check_user(self, user_id):
         '''
@@ -23,7 +24,7 @@ class User():
         '''
         return True
     def check_token(self,user_id,token):
-        session = DB_operations().connnet_db()
+        session = create_session(self.engine)
         localtime = datetime.now()
         line  = session.query(UserToken).filter(and_(UserToken.UserId==user_id,UserToken.DeadTime<=localtime)).first()
         session.close()

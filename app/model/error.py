@@ -1,6 +1,6 @@
-
 error_code = {
     401: "authorization fail.",
+
 
     511: "non exist user id {}",
     512: "exist user id {}",
@@ -20,8 +20,8 @@ error_code = {
     526: "",
     527: "",
     528: "",
-}
 
+}
 
 def error_non_exist_user_id(user_id):
     return 511, error_code[511].format(user_id)
@@ -40,11 +40,11 @@ def error_exist_store_id(store_id):
 
 
 def error_non_exist_book_id(book_id):
-    return 515,  error_code[515].format(book_id)
+    return 515, error_code[515].format(book_id)
 
 
 def error_exist_book_id(book_id):
-    return 516,  error_code[516].format(book_id)
+    return 516, error_code[516].format(book_id)
 
 
 def error_stock_level_low(book_id):
@@ -65,3 +65,5 @@ def error_authorization_fail():
 
 def error_and_message(code, message):
     return code, message
+
+

@@ -10,7 +10,7 @@ from flask import Blueprint, request
 bp_auth = Blueprint("auth", __name__, url_prefix="/auth")
 
 
-@bp_auth.route("/login")
+@bp_auth.route("/login", methods=["POST"])
 def login():
     logging.debug("login has run")
     message = "messages from login funcion"
@@ -19,7 +19,7 @@ def login():
     return jsonify({"message": message, "token": token}), code
 
 
-@bp_auth.route("/logout")
+@bp_auth.route("/logout", methods=["POST"])
 def logout():
     logging.debug("loginout has run")
     message = "messages from login funcion"
@@ -28,7 +28,7 @@ def logout():
     return jsonify({"message": message, "token": token}), code
 
 
-@bp_auth.route("/register")
+@bp_auth.route("/register", methods=["POST"])
 def register():
     logging.debug("register has run")
     message = "messages from login funcion"
@@ -47,7 +47,7 @@ def unregister():
     return jsonify({"message": message, "token": token}), code
 
 
-@bp_auth.route("/password")
+@bp_auth.route("/password", methods=["POST"])
 def change_password():
     logging.debug("changepassword has run")
     message = "messages from login funcion"

@@ -8,7 +8,7 @@ order = Order()
 '''
 注明
 '''
-@bp_order.route("/order_status")  # 用户查询历史订单状态
+@bp_order.route("/order_status", methods=["POST"])  # 用户查询历史订单状态
 def order_status():
     '''
     0. check_token
@@ -26,7 +26,7 @@ def order_status():
     return jsonify({"message": message}), code
 
 
-@bp_order.route("/my_orders")  # 查询买家所有历史订单
+@bp_order.route("/my_orders", methods=["POST"])  # 查询买家所有历史订单
 def my_orders():
     '''
     0. check_token
@@ -40,13 +40,13 @@ def my_orders():
     @request: user_id
     :return:
     '''
-    logging.debug("myorder has run")
+    logging.debug("myorder has run", methods=["POST"])
     user_id: str = request.json.get("user_id")
     token: str = request.headers.get("token")
     code,message = order.my_orders(user_id,token)
     return jsonify({"message": message}), code
 
-@bp_order.route("/user_cancel_order")  # 用户取消订单
+@bp_order.route("/user_cancel_order", methods=["POST"])  # 用户取消订单
 def user_cancel_order():
     '''
     0. check_token
@@ -71,7 +71,7 @@ def user_cancel_order():
     return jsonify({"message": message}), code
 
 
-# @bp_order.route("/auto_cancel_order")  # 自动取消订单
+# @bp_order.route("/auto_cancel_order", methods=["POST"])  # 自动取消订单
 def auto_cancel_order():
     '''
     实现过程是，每隔一段时间访问 Order表，选出已下单状态且已经到达可以取消订单时间的元组，对于每个元组调用取消改订单的函数

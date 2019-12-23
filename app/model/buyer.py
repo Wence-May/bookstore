@@ -28,8 +28,8 @@ class Buyer:
         4. 减少库存
         5. Order, OrderBooks表格中新建项(新建order的时间是"当前时间+timeout时间期限"
         '''
-        timestr = datetime.now().strftime(('%a-%b-%d-%H:%M:%S'))
-        order_id =store_id+user_id+timestr
+        timestr = datetime.now().strftime('%a-%b-%d-%H:%M:%S')
+        order_id =store_id+user_id+timestr # order_id 的生成
         code,message = self.user_method.check_token(user_id,token)
         if code!=200:
             return code,message,order_id

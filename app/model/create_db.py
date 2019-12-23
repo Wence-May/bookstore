@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import IntegrityError, DataError
 import random
-import app.model.Global as Global
+import Global as Global
 Base = declarative_base()
 
 def create_session(engine):

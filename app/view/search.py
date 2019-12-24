@@ -4,3 +4,21 @@
 如果显示结果较大，==需要分页==
 (使用==全文索引==优化查找)
 """
+import logging
+from flask import jsonify
+from flask import Blueprint, request
+
+from app.model.search import SearchMethod
+
+bp_search = Blueprint("search", __name__, url_prefix="/search")
+
+s = SearchMethod()
+
+
+@bp_search.route("/", methods=['POST'])
+def search():
+    logging.debug("ordersatus has run")
+    message = "messages from funcion"
+    code = 222
+    token = "return from function"
+    return jsonify({"message": message, "token": token}), code

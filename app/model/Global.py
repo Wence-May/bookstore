@@ -1,7 +1,7 @@
-DbURL= 'postgresql+psycopg2://postgres:0710@localhost/BookStore'
-TIMEOUT_DELTA = 2 * 60
 import time
 from datetime import datetime,timedelta
+SECRET_KEY='deddddddddddv'
+DbURL= 'postgresql+psycopg2://postgres:0710@localhost/BookStore'
 order_timeout_delta =  timedelta(hours = 12)  # 订单过时的期限
 PicturePath = "./../static/pictures/"
 

@@ -1,4 +1,5 @@
 error_code = {
+    200: "{} successfully",
     401: "authorization fail.",
 
 
@@ -11,12 +12,12 @@ error_code = {
     517: "stock level low, book id {}",
     518: "invalid order id {}",
     519: "not sufficient funds, order id {}",
-    520: "",
-    521: "",
-    522: "",
-    523: "",
-    524: "",
-    525: "",
+    520: "not exist order id {}",
+    521: "this order can't be cancelled in state of {}",
+    522: "this order is not in right state:  {}",
+    523: "repeated operation:{}",
+    524: "invalid store id {}",
+    525: "invalid value : {}",
     526: "",
     527: "",
     528: "",
@@ -54,6 +55,8 @@ def error_stock_level_low(book_id):
 def error_invalid_order_id(order_id):
     return 518, error_code[518].format(order_id)
 
+def error_invalid_store_id(store_id):
+    return 524, error_code[518].format(store_id)
 
 def error_not_sufficient_funds(order_id):
     return 519, error_code[518].format(order_id)
@@ -66,4 +69,7 @@ def error_authorization_fail():
 def error_and_message(code, message):
     return code, message
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> mwj

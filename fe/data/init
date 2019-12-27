@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7,9,10,11" />
+<meta name="renderer" content="webkit">
+<script src="/sns/box-static/disk-share/js/share.dp.js?t=1576222088474"></script>
+<link rel="shortcut icon" href="/res/static/images/favicon.ico"/>
+<script src="/sns/box-static/disk-share/js/mod.js?t=1576222088474"></script>
+<link rel="stylesheet" type="text/css" href="/box-static/consult/base.css"/>
+<link rel="stylesheet" type="text/css" href="/box-static/consult/system-core.css"/>
+<script src="/box-static/consult/base.js"></script>
+<script src="/box-static/consult/system-core.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/box-static/consult/function.css"/>
+
+
+<meta content="b31ebb7c3759312418b3645de4991aef" name="baidu-tc-verification"/>
+<meta content="max-age=30" http-equiv="Cache-Control"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<meta content="网盘,百度网盘,百度云,网络U盘,网络硬盘,免费网盘,网盘下载,网盘资源,同步,云存储,外链分享,离线下载" name="keywords">
+<meta content="百度网盘为您提供文件的网络备份、同步和分享服务。空间大、速度快、安全稳固，支持教育网加速，支持手机端。注册使用百度网盘即可享受免费存储空间" name="description"><style type="text/css">
+        html {
+            *overflow-y: hidden!important;
+        }
+        /* layout begin */
+        #layoutApp {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            min-width: 1186px;
+            _width: 100%;
+            _height: 630px;
+            font: 14px 'Microsoft YaHei', 'SimSun';
+        }
+        #layoutHeader {
+            position: absolute;
+            width: 100%;
+            height: 65px;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 41;
+        }
+        #layoutAside {
+            position: absolute;
+            width: 190px;
+            min-height: 350px;
+            top: 65px;
+            left: 0;
+            bottom: 0;
+            border-right: 1px solid #e2e5e6;
+            background: #f2f2f2;
+            z-index: 9;
+        }
+        #layoutMain {
+            position: absolute;
+            top: 65px;
+            left: 191px;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+        #doc{
+            background-color: #eef2f6;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        /* layout end */
+    </style>
+
+
+<link rel="stylesheet" type="text/css" href="/box-static/consult/default.css"/>
+
+
+
+<link rel="stylesheet" type="text/css" href="/sns/box-static/disk-share/pkg/system_5e0b154.css?t=1576222088474"/><link rel="stylesheet" type="text/css" href="/sns/box-static/disk-share/pkg/page-ui_c76cdb6.css?t=1576222088474"/></head>
+<body>
+<script> alog('speed.set', 'ht', +new Date); </script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/sns/box-static/disk-share/css/cover.css?t=1576222088474"/>
+<div class="docs init-docs" id="doc">
+<div class="phone-banner"></div>
+<div class="acss-header" id="gyqsaqpp">
+<div class="acss_banner"></div>
+<div class="verify-form">
+<form action="" class="clearfix" name="accessForm" onsubmit="return false">
+<div class="CMxQsC">
+<div class="avatar">
+<div class="photo-frame">
+<a href="//yun.baidu.com/buy/center?tag=8&from=sicon" class="v-icon svip-icon"><em></em></a>
+<span class="radius-3"><img alt="埃*斯" onload="if(this.offsetHeight>this.offsetWidth){this.style.height=&quot;44px&quot;;this.style.width=&quot;auto&quot;;}" src="https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/netdisk.1.e64032e1.WWqG1NBuE6eKoYOceSLXVQ.jpg" width="44"></span>
+</div>
+</div>
+<div class="verify-property">
+<div class="verify-user"><strong>埃*斯</strong>给您加密分享了文件</div>
+<div class="author-desc"></div>
+</div>
+<div class="verify-btn">
+<div class="verify-friend">加为好友</div>
+</div>
+<div class="cb"></div>
+</div>
+<div class="verify-input ac-close clearfix">
+<dl class="pickpw clearfix">
+<dt>
+请输入提取码：</dt>
+<dd class="clearfix input-area">
+<input class="QKKaIE LxgeIt" id="jbq2mRW" tabindex="1" type="text">
+<div id="acw3A8a"></div>
+</dd>
+</dl>
+<dl class="pickcode clearfix">
+<dt>
+验证码：</dt>
+<dd class="clearfix">
+<input class="LIztsC QKKaIE" id="tzfajpw" tabindex="2" type="text">
+<img alt="验证码" id="tfl3JEa"><a class="change-code" href="javascript:;">换一张</a>
+</dd>
+</dl>
+</div>
+</form>
+<div id="faki3KqW" style="display: block;"></div>
+</div>
+</div>
+<div class="cloud-bg">
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="bg3"></div>
+</div>
+<div class="init-footer">
+<div class="footer" id="footer" style="height: 40px;">
+<div class="footer-txt">
+<div xmlns="http://www.w3.org/1999/xhtml">&copy;2019Baidu<a class="b-lnk-gy" href="//pan.baidu.com/platform/home" target="_blank">移动开放平台</a>|<a class="b-lnk-gy" href="/disk/duty/" target="_blank">服务协议</a>|<a class="b-lnk-gy" href="//yun.baidu.com/disk/privacy" target="_blank">权利声明</a>|<span class="hp-footer-link"><a class="b-lnk-gy" href="http://yun.baidu.com/disk/version" target="_blank">版本更新</a>|<a class="b-lnk-gy" href="http://yun.baidu.com/disk/help" target="_blank">帮助中心</a>|<a class="b-lnk-gy" href="http://help.baidu.com/newadd?prod_id=29&category=2&ptype=48" target="_blank">问题反馈</a>|<a class="b-lnk-gy" href="http://copyright.baidu.com/index.php/index/complaint" target="_blank">版权投诉</a></div>
+</div>
+</div></div>
+</div>
+
+
+<script>
+        void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+    </script>
+<img style="position:absolute;top:-10px;left:-10px;width:1px;height:1px;display:none;" src="//pcs.baidu.com/rest/2.0/pcs/file?method=plantcookie&type=ett" />
+<img style="position:absolute;top:-10px;left:-10px;width:1px;height:1px;display:none;" src="//pcs.baidu.com/rest/2.0/pcs/file?method=plantcookie&type=stoken&source=pcs" />
+<img style="position:absolute;top:-10px;left:-10px;width:1px;height:1px;display:none;" src="//pcsdata.baidu.com/rest/2.0/pcs/file?method=plantcookie&type=stoken&source=pcsdata" />
+<script>
+        void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol||a.alogObjectConfig.https?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+    </script>
+<script>
+        /* eslint-disable */
+        if (navigator.userAgent.indexOf('MSIE') < 0 || navigator.userAgent.indexOf('MSIE 11.0') > 0) {
+            alog('speed.set', 'drt', +new Date); 
+        }
+    </script>
+</body><script type="text/javascript">require.resourceMap({"res":{"disk-share:static/js/pcsDownloadUtil.js":{"url":"/sns/box-static/disk-share/js/pcsDownloadUtil.js?t=1576222088474"},"disk-share:static/js/baidu-tongji.js":{"url":"/sns/box-static/disk-share/js/baidu-tongji.js?t=1576222088474"}}});</script><script type="text/javascript" src="/sns/box-static/disk-share/widget/data/yunData_a06f5ea.js?t=1576222088474"></script>
+<script type="text/javascript" src="/sns/box-static/disk-share/pkg/system_2c295f1.js?t=1576222088474"></script>
+<script type="text/javascript" src="/sns/box-static/disk-share/widget/verifyCodeDialog/index_81fc334.js?t=1576222088474"></script>
+<script type="text/javascript" src="/sns/box-static/disk-share/widget/verifyCodeDialog/newVerify_aa4d281.js?t=1576222088474"></script>
+<script type="text/javascript" src="/sns/box-static/disk-share/pkg/page-ui_d8fb185.js?t=1576222088474"></script>
+<script type="text/javascript" src="/sns/box-static/disk-share/js/boot.js?t=1576222088474"></script>
+<script type="text/javascript">!function(){                (function(){
+            var context = require('system-core:context/context.js');
+            var Broker = require('system-core:pluginHub/Broker/Broker.js');
+            var yunData = require('disk-share:widget/data/yunData.js');
+            yunData.setData({"loginstate":0,"username":"\u57c3*\u65af","uk":2567222694,"sampling":false,"bdstoken":null,"is_vip":0,"is_year_vip":0,"show_vip_ad":null,"vip_end_time":null,"is_evip":0,"is_svip":0,"is_auto_svip":0,"photo":"https:\/\/ss0.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG\/sys\/portrait\/item\/netdisk.1.e64032e1.WWqG1NBuE6eKoYOceSLXVQ.jpg","errortype":null,"is_master_vip":1,"is_master_svip":1,"visitor_uk":null,"followFlag":null,"add_friend_small_flow":1,"urlparam":[],"XDUSS":"null"});
+
+            yunData.setData('SERVERTIME', 1576582402873);
+            context.extend({data: {user: yunData.get()},Broker:Broker});
+        })();
+            }();
+!function(){        require("disk-share:widget/system/errorMsg/errorMsg.js");
+    }();
+!function(){    require("disk-share:widget/pageModule/init/init.js");
+}();
+!function(){         require("disk-share:widget/pageModule/hot-rec/hot-rec.js");
+         var footer = require("disk-share:widget/pageModule/footer/footer.js");
+    }();
+!function(){        require.async("disk-share:static/js/baidu-tongji.js");
+    }();</script></html>

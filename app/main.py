@@ -14,12 +14,11 @@ import logging
 from logging import Logger
 from logging import FileHandler
 import app.view.auth as auth
-
-
-# import app.view.buyer as buyer
-# import app.view.seller as seller
-# import app.view.order as order
-
+import app.view.buyer as buyer
+import app.view.seller as seller
+import app.view.order as order
+import app.model.Global as Global
+from sqlalchemy import create_engine
 
 def create_app(test_config=None):
     # 设置log
@@ -28,15 +27,15 @@ def create_app(test_config=None):
     handler = logging.StreamHandler()
     logging.getLogger().addHandler(handler)
 
+
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    # app.config.from_object('config')
-    # connect db
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:0710@localhost/game'
+    app.config.from_object('config')
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:0710@localhost/game'
     app.register_blueprint(auth.bp_auth)
-    # app.register_blueprint(buyer.bp_buyer)
-    # app.register_blueprint(seller.bp_seller)
-    # app.register_blueprint(order.bp_order)
+    app.register_blueprint(buyer.bp_buyer)
+    app.register_blueprint(seller.bp_seller)
+    app.register_blueprint(order.bp_order)
     app.run()
     return app
 

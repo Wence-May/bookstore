@@ -27,7 +27,7 @@ def register():
     return jsonify({"message": message}), code
 
 
-@bp_auth.route("/login", methods=['POST'])
+@bp_auth.route("/login", methods=["POST"])
 def login():
     '''
     @request:{

@@ -2,7 +2,7 @@
 import app.model.Global as Global
 import json 
 from app.model.create_db import Users,Orders,UserToken,OrderBooks,StoreBooks,create_session
-from app.model.user import User
+from app.model.user import UserMethod
 import app.model.error as error
 import logging
 from datetime import datetime

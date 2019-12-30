@@ -6,10 +6,10 @@
 import logging
 from flask import jsonify
 from flask import Blueprint, request
-from app.model.user import UsersMethod
+from app.model.user import UserMethod
 
 bp_auth = Blueprint("auth", __name__, url_prefix="/auth")
-u = UsersMethod()
+u = UserMethod()
 
 
 @bp_auth.route("/register", methods=['POST'])

@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import IntegrityError, DataError
 import random
-import Global as Global
+import app.model.Global as Global
 Base = declarative_base()
 
 def create_session(engine):
@@ -34,35 +34,16 @@ class Users(Base):
     UserId = Column(String(100), Sequence('user_id_seq'), primary_key=True, autoincrement=False)
     UserName = Column(String(100))
     HaveStore = Column(Boolean, nullable=False)
-<<<<<<< HEAD
-    Balance = Column(Float(precision=10, decimal_return_scale=2), default=0)
-    Password = Column(String(100), nullable=False)
-    Terminal = Column(String(100))
-
-    def __init__(self, UserId: str, UserName: str, HaveStore: bool, Balance: float, Password: str, Terminal: str):
-        self.UserId = UserId
-        self.UserName = UserName
-        self.HaveStore = HaveStore
-        self.Balance = Balance
-        self.Password = Password
-        self.Terminal = Terminal
-=======
     Balance = Column(Float(precision=10, decimal_return_scale=2))
     Password = Column(String(10))
     Terminal = Column(String(10))
     Token = Column(String(100))
  
->>>>>>> mwj
 
 
 class Stores(Base):
     __tablename__ = "Stores"
-<<<<<<< HEAD
-
-    StoreId = Column(String(100), Sequence('user_id_seq'), primary_key=True)
-=======
     StoreId = Column(String(100), Sequence('Stores_id_seq'), primary_key=True)
->>>>>>> mwj
     # StoreName = Column(String(10))
     UserId = Column(ForeignKey("Users.UserId"))
     Balance = Column(Float(precision=10, decimal_return_scale=2))
@@ -101,13 +82,8 @@ class BookPictures(Base):
         PrimaryKeyConstraint('PictureId'),
     )
     PictureId = Column(String(500), primary_key=True)
-<<<<<<< HEAD
-    BookId = Column(String(100), ForeignKey("StoreBooks.BookId"), primary_key=True)
-    Address = Column(String(100))  # 图片命名：userId + 上传时间戳
-=======
     BookId = Column(String(100), ForeignKey("StoreBooks.BookId"))
     Address = Column(String(100)) # 图片命名：userId + 上传时间戳
->>>>>>> mwj
     # 图片保存参考：https://blog.csdn.net/mingyuli/article/details/82853812
 
 
@@ -136,11 +112,7 @@ class UserToken(Base):
     DeadTime = Column(DateTime,nullable = False)
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    engine = create_engine(DbURL)
-=======
     engine = create_engine(Global.DbURL)
->>>>>>> mwj
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     Base.metadata.create_all(engine)  # 创建所有表格
